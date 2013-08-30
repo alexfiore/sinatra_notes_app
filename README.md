@@ -1,11 +1,11 @@
-Overview
+Overview:
 Using Sinatra, create a simple notes application with a single notes table in the database and all CRUD routes and views. You can start from the standard SInatra Skeleton .
 
-Core
+Core:
 Demonstrate that you can implement CRUD in a Sinatra application.
 
-Objectives
-Modify the skeleton code to achieve the following functionality:
+Objectives:
+Modify the skeleton code to achieve the following functionality ~
 
 A user Create a new note.
 A user can Read all the notes created.
