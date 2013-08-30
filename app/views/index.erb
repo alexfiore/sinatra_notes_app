@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Notes</title>
+</head>
+
+<body>
+  <br><br>
+  <div class="container">
+    <br><br>
+    <form action="/notes" method="POST">
+      You can create, read, update, and delete notes by filling out the applicable fields below. All notes are saved and shown below for reference. <br><br>
+      <input type="text" name="title" placeholder="Title">
+      <br><br>
+      <input type="text" name="content" placeholder="Type your note in here..." style="width: 200px; height:50px">
+      <br><br>
+      <input type="submit" value="Create New Note!">
+    </form>
+  </div>
+
+  <div class="container">
+    <br><br>
+    <% if @errors %>
+    <% @errors.each do |e| %>
+    <strong><%= e + "!" %></strong><br><br>
+    <% end %>
+    <% end %>
+    <% if @notes %> 
+    <form>
+      <% @notes.each do |n| %>
+      <strong><%= "#{n.id}. #{n.title}:" %></strong>
+      <a href='/notes/<%= "#{n.id}" %>/edit'>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Crystal_Clear_action_edit.png" height="15" width="15"></a>  <a href='/notes/<%= "#{n.id}" %>/delete'>
+        <img src="http://log.concept2.com/images/delete.png"></a><br>
+        <%= "#{n.content}" %>
+        <br><br><br>
+        <% end %>   
+      </form>
+      <% end %> 
+    </div>
+  </body>
+  </html
+
+

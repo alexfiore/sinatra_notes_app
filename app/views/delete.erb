@@ -1,0 +1,13 @@
+
+<div class="container">
+  <br>
+  <% if @note %>  
+  <center><form action="/notes/<%= @note.id %>" method="post">
+    <input type='hidden' name="_method" value="delete">
+    <input type='submit' value='Delete Note!'>
+  </form><br>
+  <a href="/"> <img src="http://www.physiosouth.co.nz/files/images/content/back-arrow2.png" height="50" width="50"> </a>
+
+</center>
+<% end %>
+</div>

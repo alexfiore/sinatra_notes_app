@@ -1,0 +1,15 @@
+<div class="container">
+  <br>
+  <% if @body %>  
+  <center><form action="/notes/<%= @body.id %>" method="post">
+    <strong>NB: a note must contain a body to be saved.</strong><br><br>
+    <input type='hidden' name="_method" value="put">
+    <input type="text" value="<%= @body.content %>">
+    <input type='submit' value='Edit Note!'>
+  </form>
+  <br>
+  <a href="/"> <img src="http://www.physiosouth.co.nz/files/images/content/back-arrow2.png" height="50" width="50"> </a>
+
+</center>
+<% end %>
+</div>
