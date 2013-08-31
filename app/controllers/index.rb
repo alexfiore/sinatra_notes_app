@@ -1,5 +1,5 @@
 get '/' do
-  @notes = Note.all 
+  @notes = Note.order :id
   erb :index
 end
 
@@ -13,11 +13,6 @@ post '/notes' do
   end
 end
 
-get '/notes/:id/delete' do
-  @note = Note.find_by_id(params[:id])
-  erb :delete
-end
-
 get '/notes/:id/edit' do
   @body = Note.find params[:id]
   erb :edit
@@ -26,11 +21,25 @@ end
 put '/notes/:id' do  
   n = Note.find(params[:id])  
   n.content = params[:content]  
-  n.save  
-  redirect '/'  
+  if n.save
+      redirect '/'
+  else
+    @body = Note.find params[:id]
+    @errors = n.errors.full_messages
+    erb :edit
+  end
 end  
+
+get '/notes/:id/delete' do
+  @note = Note.find_by_id(params[:id])
+  erb :delete
+end
 
 delete '/notes/:id' do  
   Note.find_by_id(params[:id]).destroy  
   redirect '/'
+end
+
+not_found do 
+  "404, no page exists"
 end 

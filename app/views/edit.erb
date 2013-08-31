@@ -1,10 +1,17 @@
 <div class="container">
+  <form><br><br>
+  <% if @errors %>
+    <% @errors.each do |e| %>
+    <strong><%= e + "!" %></strong><br><br>
+      <% end %>
+  <% end %>
+</form>
   <br>
   <% if @body %>  
   <center><form action="/notes/<%= @body.id %>" method="post">
     <strong>NB: a note must contain a body to be saved.</strong><br><br>
     <input type='hidden' name="_method" value="put">
-    <input type="text" value="<%= @body.content %>">
+    <input type="text" name="content" value="<%= @body.content %>">
     <input type='submit' value='Edit Note!'>
   </form>
   <br>
