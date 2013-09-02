@@ -32,7 +32,7 @@
       <% @notes.each do |n| %>
       <strong><%= "#{n.id}. #{n.title}:" %></strong>
       <a href='/notes/<%= "#{n.id}" %>/edit'>
-        <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Crystal_Clear_action_edit.png" height="15" width="15"></a>  <a href='/notes/<%= "#{n.id}" %>/delete'>
+        <img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Crystal_Clear_action_edit.png" height="15" width="15"></a>  <a href='/notes/<%= "#{n.id}" %>/delete'>     
         <img src="http://log.concept2.com/images/delete.png"></a><br>
         <%= "#{n.content}" %>
         <br><br><br>
