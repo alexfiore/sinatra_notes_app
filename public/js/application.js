@@ -1,7 +1,21 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  var modal = new Modal();
+  modal.showModal($('#blah'), $('#someId'));
+})
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+function Modal(){
+}
+
+Modal.prototype = {
+  showModal: function(form, link){
+    $(form).easyModal({
+      top: 200,
+      overlay: 0.2
+    });
+
+    $(link).click(function(e){
+      $(form).trigger('openModal');
+      e.preventDefault();
+    });
+  }
+}

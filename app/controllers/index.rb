@@ -1,5 +1,5 @@
 get '/' do
-  @notes = Note.order :id
+  @notes = Note.order(:id)
   erb :index
 end
 
@@ -14,7 +14,7 @@ post '/notes' do
 end
 
 get '/notes/:id/edit' do
-  @body = Note.find params[:id]
+  @body = Note.find(params[:id])
   erb :edit
 end
 
@@ -22,9 +22,9 @@ put '/notes/:id' do
   n = Note.find(params[:id])  
   n.content = params[:content]  
   if n.save
-      redirect '/'
+    redirect '/'
   else
-    @body = Note.find params[:id]
+    @body = Note.find(params[:id])
     @errors = n.errors.full_messages
     erb :edit
   end
